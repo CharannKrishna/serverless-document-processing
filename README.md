@@ -64,7 +64,7 @@ Edit
 
 ### 🛠 Setup
 
-```bash
+Go to Terminal
 git clone https://github.com/CharannKrishna/serverless-document-processing.git
 cd serverless-document-processing
 npm install

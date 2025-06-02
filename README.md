@@ -1,14 +1,72 @@
-# Welcome to your CDK TypeScript project
+# 🗂️ Serverless Document Processing
 
-This is a blank project for CDK development with TypeScript.
+A fully serverless document ingestion and processing pipeline using AWS CDK (TypeScript), Lambda, S3, and Amazon Textract.
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+---
 
-## Useful commands
+## 📦 Features
 
-* `npm run build`   compile typescript to js
-* `npm run watch`   watch for changes and compile
-* `npm run test`    perform the jest unit tests
-* `npx cdk deploy`  deploy this stack to your default AWS account/region
-* `npx cdk diff`    compare deployed stack with current state
-* `npx cdk synth`   emits the synthesized CloudFormation template
+- 🔁 Event-driven document processing via S3 triggers
+- 🧠 Text, form, and table extraction with Amazon Textract
+- ⚡ Scalable and serverless with AWS Lambda
+- 💡 Written using AWS CDK in TypeScript
+
+---
+
+## 🧱 Architecture
+
+S3 Bucket (Upload)
+↓
+Lambda: document-processor.ts
+↓
+Amazon Textract API
+↓
+Lambda: textract-handler.ts (optional post-processing)
+
+yaml
+Copy
+Edit
+
+> 🔽 You can replace this with a visual PNG/SVG if preferred.
+
+---
+
+## 📁 Folder Structure
+
+serverless-document-processing/
+├── bin/
+│ └── app.ts # CDK app entry
+├── lib/
+│ └── document-stack.ts # Infrastructure stack
+├── lambdas/
+│ ├── document-processor.ts # Triggered on S3 upload
+│ ├── textract-handler.ts # Handles Textract result (optional)
+├── test/
+│ └── document-stack.test.ts # Unit test for stack
+├── package.json
+├── tsconfig.json
+└── README.md
+
+yaml
+Copy
+Edit
+
+---
+
+## 🚀 Deploy Instructions
+
+### ✅ Prerequisites
+
+- Node.js v16+
+- AWS CDK v2 installed: `npm install -g aws-cdk`
+- AWS CLI configured (`aws configure`)
+- Git installed and linked to GitHub
+
+### 🛠 Setup
+
+```bash
+git clone https://github.com/CharannKrishna/serverless-document-processing.git
+cd serverless-document-processing
+npm install
+cdk bootstrap
+cdk deploy
